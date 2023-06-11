@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using GameSupply.Views;
 
 namespace GameSupply
 {
@@ -23,6 +24,9 @@ namespace GameSupply
         public MainWindow()
         {
             InitializeComponent();
+            mainFrame.Navigate(new AuthenticationPage());
+            StandaloneScripts.PageNavigationManager.MainFrame = mainFrame;
+            StandaloneScripts.PageNavigationManager.MainFrame.NavigationUIVisibility = NavigationUIVisibility.Hidden;
         }
     }
 }
