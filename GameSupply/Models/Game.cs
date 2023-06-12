@@ -14,6 +14,7 @@ namespace GameSupply.Models
         public string Description { get; set; }
         public int Price { get; set; }
         public string PreviewImage { get; set; }
+        public string DownloadLink { get; set; }
 
         public virtual Genre IdGenreNavigation { get; set; }
         public virtual User IdPublisherNavigation { get; set; }

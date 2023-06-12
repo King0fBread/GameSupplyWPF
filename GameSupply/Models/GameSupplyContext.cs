@@ -8,13 +8,19 @@ namespace GameSupply.Models
 {
     public partial class GameSupplyContext : DbContext
     {
-        public GameSupplyContext()
+        private static GameSupplyContext? _context = new GameSupplyContext();
+        public static GameSupplyContext GetContext()
         {
+            return _context;
         }
 
         public GameSupplyContext(DbContextOptions<GameSupplyContext> options)
             : base(options)
         {
+        }
+        public GameSupplyContext()
+        {
+
         }
 
         public virtual DbSet<Game> Games { get; set; }
@@ -68,6 +74,11 @@ namespace GameSupply.Models
                     .HasForeignKey(d => d.IdPublisher)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Games_Users");
+
+                entity.Property(e => e.DownloadLink)
+                    .HasColumnName("DownloadLink")
+                    .HasColumnType("nvarchar(50)")
+                    .IsRequired();
             });
 
             modelBuilder.Entity<Genre>(entity =>
@@ -133,7 +144,7 @@ namespace GameSupply.Models
 
                 entity.Property(e => e.Password)
                     .IsRequired()
-                    .HasMaxLength(50);
+                    .HasMaxLength(400);
 
                 entity.Property(e => e.Status)
                     .IsRequired()

@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AuthenticationPage">
 
-    <Grid Background="#787878">
+    <Grid Background="#575757">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -25,7 +25,7 @@
             <TextBox x:Name="UsernameTextBox" Margin="0,5,0,10" Width="200" MaxLength="20"/>
             <TextBlock FontSize="16" Text="Пароль" Width="200"/>
             <PasswordBox x:Name="PasswordBox" Margin="0,5,0,10" Width="200" MaxLength="20"/>
-            <Button Content="Далее" Width="80" Height="30" HorizontalAlignment="Center"/>
+            <Button x:Name="LoginButton" Content="Далее" Width="80" Height="30" HorizontalAlignment="Center" Click="LoginButton_Click"/>
             <TextBlock HorizontalAlignment="Center" Margin="0,5,0,5" Text="Или" TextAlignment="Center"/>
             <Button Content="Войти анонимно" Width="119" Height="30" HorizontalAlignment="Center"/>
         </StackPanel>
