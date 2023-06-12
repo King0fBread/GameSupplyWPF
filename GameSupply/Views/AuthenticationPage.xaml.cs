@@ -12,6 +12,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BCrypt.Net;
 using GameSupply.Models;
+using GameSupply.StandaloneScripts;
 using System.Linq;
 
 namespace GameSupply.Views
@@ -26,7 +27,7 @@ namespace GameSupply.Views
             InitializeComponent();
         }
 
-        private bool AuthenticateUser(string loginInput, string passwordInput)
+        private int AuthenticateUser(string loginInput, string passwordInput)
         {
             //Login check
             var context = GameSupplyContext.GetContext().Users.FirstOrDefault(p => p.Login == loginInput);
@@ -35,24 +36,32 @@ namespace GameSupply.Views
                 //Password check
                 if(BCrypt.Net.BCrypt.EnhancedVerify(passwordInput, context.Password))
                 {
-                    return true;
+                    return 0;
                 }
                 //Incorrect password
-                return false;
+                return 1;
             }
             //incorrect login
-            return false;
+            return 2;
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            if(AuthenticateUser(UsernameTextBox.Text, PasswordBox.Password))
+            int authResult = AuthenticateUser(UsernameTextBox.Text, PasswordBox.Password);
+            switch (authResult)
             {
-                MessageBox.Show("kruto");
-            }
-            else
-            {
-                MessageBox.Show("nee");
+                case 0:
+                    PageNavigationManager.MainFrame.Navigate(new GamesCatalogue());
+                    break;
+                case 1:
+                    MessageBox.Show("Неверный пароль!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    PasswordBox.Clear();
+                    break;
+                case 2:
+                    MessageBox.Show("Пользователь не найден!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    UsernameTextBox.Clear();
+                    PasswordBox.Clear();
+                    break;
             }
         }
     }
