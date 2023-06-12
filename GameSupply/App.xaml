@@ -8,7 +8,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border CornerRadius="10"
+                        <Border CornerRadius="6"
                             Background="#ff6a26"
                             BorderThickness="1">
                             <ContentPresenter
@@ -19,9 +19,7 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-        </Style>
-        <Style TargetType="TextBlock">
-            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="TextBlock.Foreground" Value="White"></Setter>
         </Style>
     </Application.Resources>
 </Application>

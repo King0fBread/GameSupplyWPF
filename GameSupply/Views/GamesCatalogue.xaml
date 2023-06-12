@@ -7,11 +7,23 @@
       mc:Ignorable="d" 
       d:DesignHeight="420" d:DesignWidth="900"
       Title="GamesCatalogue">
-
+    <Page.Resources>
+        <Image x:Key="magnifyingGlass" Source="/Assets/magnifying-glass.png"></Image>
+    </Page.Resources>
+    
     <Grid>
         <StackPanel VerticalAlignment="Top" Height="60" Background="Gray" Orientation="Horizontal">
             <Button Height="30" Width="110" Margin="15 0 15 0">Добавить игру</Button>
             <Button Height="30" Width="200">Показать только свои игры</Button>
+            <ComboBox Width="130" Height="30" Text="Поиск по жанру" IsEditable="True" IsReadOnly="True" Margin="140 0 10 0">
+                <ComboBoxItem>Платформер</ComboBoxItem>
+                <ComboBoxItem>Хоррор</ComboBoxItem>
+                <ComboBoxItem>Пазл</ComboBoxItem>
+                <ComboBoxItem>Выживание</ComboBoxItem>
+                <ComboBoxItem>Аркада</ComboBoxItem>
+            </ComboBox>
+            <TextBox Height="30" Width="200"></TextBox>
+            <Button Content="{StaticResource magnifyingGlass}" Width="50" Height="40" Margin="10"></Button>
         </StackPanel>
         <ListBox x:Name="GamesListBoxData" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="360" Width="900" Background="#575757" VerticalAlignment="Bottom">
             <ListBox.ItemsPanel>
@@ -28,7 +40,7 @@
                                     <BitmapImage UriSource="{Binding PreviewImage}"/>
                                 </Image.Source>
                             </Image>
-                            <TextBlock HorizontalAlignment="Center" Padding="5" Text="{Binding Title}" FontSize="15"></TextBlock>
+                            <TextBlock HorizontalAlignment="Center" Padding="5" Text="{Binding Title}" FontSize="15" Foreground="White"></TextBlock>
                         </StackPanel>
                     </Border>
                 </DataTemplate>

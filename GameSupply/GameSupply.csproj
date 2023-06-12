@@ -17,6 +17,7 @@
     <None Remove="Assets\gameCoversSmile.png" />
     <None Remove="Assets\gameCoversWarlocks.png" />
     <None Remove="Assets\joystick.png" />
+    <None Remove="Assets\magnifying-glass.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -63,6 +64,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Assets\joystick.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\magnifying-glass.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

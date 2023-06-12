@@ -18,19 +18,19 @@
         </Grid.RowDefinitions>
 
         <Image Source="/Assets/joystick.png" HorizontalAlignment="Center" Margin="0,10,0,0" Width="50"/>
-        <TextBlock Grid.Row="1" HorizontalAlignment="Center" FontSize="24" Margin="0,10,0,0" Text="Авторизация" Width="156"/>
+        <TextBlock Grid.Row="1" HorizontalAlignment="Center" FontSize="24" Margin="0,10,0,0" Text="Авторизация" Width="156" Foreground="White"/>
 
         <StackPanel Grid.Row="2" Margin="50,10,50,10">
-            <TextBlock FontSize="16" Text="Логиин" Width="200"/>
+            <TextBlock FontSize="16" Text="Логиин" Width="200" Foreground="White"/>
             <TextBox x:Name="UsernameTextBox" Margin="0,5,0,10" Width="200" MaxLength="20"/>
-            <TextBlock FontSize="16" Text="Пароль" Width="200"/>
+            <TextBlock FontSize="16" Text="Пароль" Width="200" Foreground="White"/>
             <PasswordBox x:Name="PasswordBox" Margin="0,5,0,10" Width="200" MaxLength="20"/>
             <Button x:Name="LoginButton" Content="Далее" Width="80" Height="30" HorizontalAlignment="Center" Click="LoginButton_Click"/>
-            <TextBlock HorizontalAlignment="Center" Margin="0,5,0,5" Text="Или" TextAlignment="Center"/>
+            <TextBlock HorizontalAlignment="Center" Margin="0,5,0,5" Text="Или" TextAlignment="Center" Foreground="White"/>
             <Button Content="Войти анонимно" Width="119" Height="30" HorizontalAlignment="Center"/>
         </StackPanel>
 
-        <TextBlock Grid.Row="3" HorizontalAlignment="Center" Margin="0,20,0,10" Text="Зарегистрироваться как новый поставщик?" Width="266"/>
+        <TextBlock Grid.Row="3" HorizontalAlignment="Center" Margin="0,20,0,10" Text="Зарегистрироваться как новый поставщик?" Width="266" Foreground="White"/>
         <Button Grid.Row="4" Content="Создать аккаунт" Width="140" HorizontalAlignment="Center"/>
     </Grid>
 </Page>
