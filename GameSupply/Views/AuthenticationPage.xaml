@@ -27,7 +27,7 @@
             <PasswordBox x:Name="PasswordBox" Margin="0,5,0,10" Width="200" MaxLength="20"/>
             <Button x:Name="LoginButton" Content="Далее" Width="80" Height="30" HorizontalAlignment="Center" Click="LoginButton_Click"/>
             <TextBlock HorizontalAlignment="Center" Margin="0,5,0,5" Text="Или" TextAlignment="Center" Foreground="White"/>
-            <Button Content="Войти анонимно" Width="119" Height="30" HorizontalAlignment="Center"/>
+            <Button Name="AnnonymousLoginButton" Content="Войти анонимно" Width="119" Height="30" HorizontalAlignment="Center" Click="AnnonymousLoginButton_Click" />
         </StackPanel>
 
         <TextBlock Grid.Row="3" HorizontalAlignment="Center" Margin="0,20,0,10" Text="Зарегистрироваться как новый поставщик?" Width="266" Foreground="White"/>

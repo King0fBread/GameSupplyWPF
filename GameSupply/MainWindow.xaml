@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:GameSupply"
         mc:Ignorable="d"
         Icon="/Assets/joystick.png"
-        Title="MainWindow" Height="500" Width="900" ResizeMode="CanMinimize">
+        Title="MainWindow" Height="535" Width="900" ResizeMode="CanMinimize">
     
     <Grid>
         <Frame x:Name="mainFrame"></Frame>

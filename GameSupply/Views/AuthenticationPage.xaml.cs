@@ -36,6 +36,14 @@ namespace GameSupply.Views
                 //Password check
                 if(BCrypt.Net.BCrypt.EnhancedVerify(passwordInput, context.Password))
                 {
+                    UserInfo.User = context;
+                    if(context.Status == "Admin") {
+                        StatusContainer.UserStatus = 2;
+                    }
+                    else
+                    {
+                        StatusContainer.UserStatus = 1;
+                    }
                     return 0;
                 }
                 //Incorrect password
@@ -52,6 +60,7 @@ namespace GameSupply.Views
             {
                 case 0:
                     PageNavigationManager.MainFrame.Navigate(new GamesCatalogue());
+                    PageNavigationManager.MainFrame.RemoveBackEntry();
                     break;
                 case 1:
                     MessageBox.Show("Неверный пароль!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -63,6 +72,13 @@ namespace GameSupply.Views
                     PasswordBox.Clear();
                     break;
             }
+        }
+
+        private void AnnonymousLoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            StatusContainer.UserStatus = 0;
+            PageNavigationManager.MainFrame.Navigate(new GamesCatalogue());
+            PageNavigationManager.MainFrame.RemoveBackEntry();
         }
     }
 }
