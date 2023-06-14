@@ -44,7 +44,6 @@ namespace GameSupply.Models
                 entity.HasKey(e => e.IdGame);
 
                 entity.Property(e => e.IdGame)
-                    .ValueGeneratedNever()
                     .HasColumnName("ID_Game");
 
                 entity.Property(e => e.Description)
@@ -86,7 +85,6 @@ namespace GameSupply.Models
                 entity.HasKey(e => e.IdGenre);
 
                 entity.Property(e => e.IdGenre)
-                    .ValueGeneratedNever()
                     .HasColumnName("ID_Genre");
 
                 entity.Property(e => e.Name)
@@ -118,7 +116,6 @@ namespace GameSupply.Models
                 entity.HasKey(e => e.IdPriceRange);
 
                 entity.Property(e => e.IdPriceRange)
-                    .ValueGeneratedNever()
                     .HasColumnName("ID_PriceRange");
 
                 entity.Property(e => e.RangeName)
@@ -131,7 +128,6 @@ namespace GameSupply.Models
                 entity.HasKey(e => e.IdUser);
 
                 entity.Property(e => e.IdUser)
-                    .ValueGeneratedNever()
                     .HasColumnName("ID_User");
 
                 entity.Property(e => e.Email)

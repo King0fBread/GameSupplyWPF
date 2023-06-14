@@ -1,0 +1,24 @@
+﻿<Page x:Class="GameSupply.Views.NewUserPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GameSupply.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="900"
+      Title="NewUserPage">
+
+    <Canvas Background="#575757">
+        <TextBlock FontSize="30" Foreground="White" Canvas.Left="357" Canvas.Top="22" FontWeight="Bold">Регистрация</TextBlock>
+        <TextBlock FontSize="20" Foreground="White" Canvas.Left="362" Canvas.Top="79">Логин</TextBlock>
+        <TextBox Name="loginTextBox" Canvas.Left="362" Canvas.Top="109" Width="186" Height="22" MaxLength="40"></TextBox>
+        <TextBlock FontSize="20" Foreground="White" Canvas.Left="362" Canvas.Top="145">Пароль</TextBlock>
+        <TextBox Name="passwordTextBox" Canvas.Left="362" Canvas.Top="175" Width="186" Height="21"></TextBox>
+        <TextBlock FontSize="20" Foreground="White" Canvas.Left="362" Canvas.Top="211">Повторите пароль</TextBlock>
+        <TextBox Name="secondPasswordTextBox" Canvas.Left="362" Canvas.Top="241" Width="186" Height="21"></TextBox>
+        <TextBlock FontSize="20" Foreground="White" Canvas.Left="362" Canvas.Top="283">Email</TextBlock>
+        <TextBox Name="emailTextBox" Canvas.Left="362" Canvas.Top="313" Width="186" Height="20"></TextBox>
+        <Button x:Name="backButton" Content="Назад" Height="36" Width="95" Canvas.Left="408" Canvas.Top="427" FontSize="20" Click="backButton_Click"></Button>
+        <Button Name="userRegisterButton" Content="Зарегистрироваться" Height="36" Width="236" Canvas.Left="338" Canvas.Top="369" FontSize="20" Click="userRegisterButton_Click"></Button>
+    </Canvas>
+</Page>

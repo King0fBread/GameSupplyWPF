@@ -21,27 +21,37 @@ namespace GameSupply.Views
     /// </summary>
     public partial class GamesCatalogue : Page
     {
-        private List<Game> availableGames = new List<Game>();
-        private bool searchButtonFilterActive = false;
+        private List<Game> _availableGames = new List<Game>();
+        private bool _searchButtonFilterActive = false;
         public GamesCatalogue()
         {
             InitializeComponent();
-            availableGames = GameSupplyContext.GetContext().Games.ToList();
-            GamesListBoxData.ItemsSource = availableGames;
+            _availableGames = GameSupplyContext.GetContext().Games.ToList();
+            GamesListBoxData.ItemsSource = _availableGames;
 
             if(UserInfo.User != null && StatusContainer.UserStatus != 0)
             {
                 accountNameTextBlock.Text = "Вы зарегистрированы как: " + UserInfo.User.Login;
+
+                addGameButton.Visibility = Visibility.Visible;
+                myGamesButton.Visibility = Visibility.Visible;
+                statisticsButton.Visibility = Visibility.Visible;
+                loginHistoryButton.Visibility = Visibility.Visible;
             }
             else
             {
                 accountNameTextBlock.Text = "Просмотр в анонимном режиме";
+
+                addGameButton.Visibility = Visibility.Hidden;
+                myGamesButton.Visibility = Visibility.Hidden;
+                statisticsButton.Visibility = Visibility.Hidden;
+                loginHistoryButton.Visibility = Visibility.Hidden;
             }
         }
 
         private void genreComboBox_DropDownClosed(object sender, EventArgs e)
         {
-            var allGames = availableGames;
+            var allGames = _availableGames;
             switch (genreComboBox.SelectedIndex)
             {
                 case 0:
@@ -66,16 +76,16 @@ namespace GameSupply.Views
         }
         private void buttonTitleSearch_Click(object sender, RoutedEventArgs e)
         {
-            var allGames = availableGames;
-            if (!searchButtonFilterActive)
+            var allGames = _availableGames;
+            if (!_searchButtonFilterActive)
             {
                 GamesListBoxData.ItemsSource = allGames.Where(p => p.Title.Contains(textBoxTitle.Text));
-                searchButtonFilterActive = true;
+                _searchButtonFilterActive = true;
             }
             else
             {
-                GamesListBoxData.ItemsSource = availableGames;
-                searchButtonFilterActive = false;
+                GamesListBoxData.ItemsSource = _availableGames;
+                _searchButtonFilterActive = false;
             }
         }
         private void logOutButton_Click(object sender, RoutedEventArgs e)
@@ -86,7 +96,7 @@ namespace GameSupply.Views
 
         private void myGamesButton_Click(object sender, RoutedEventArgs e)
         {
-            GamesListBoxData.ItemsSource = availableGames.Where(p => p.IdPublisher == UserInfo.User.IdUser);
+            GamesListBoxData.ItemsSource = _availableGames.Where(p => p.IdPublisher == UserInfo.User.IdUser);
         }
 
         private void addGameButton_Click(object sender, RoutedEventArgs e)
@@ -109,7 +119,8 @@ namespace GameSupply.Views
         {
             var button = sender as Button;
             var selectedGame = button.DataContext as Game;
-            MessageBox.Show(selectedGame.Title);
+            PageNavigationManager.MainFrame.Navigate(new SelectedGamePage(selectedGame));
+            PageNavigationManager.MainFrame.RemoveBackEntry();
         }
     }
 }

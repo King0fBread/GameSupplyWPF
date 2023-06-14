@@ -16,6 +16,10 @@ namespace GameSupply.Models
 
         public virtual ICollection<Game> Games { get; set; } = new List<Game>();
 
+        public User()
+        {
+
+        }
         //Ability to add new publishers
         public User(string login, string password, string email)
         {

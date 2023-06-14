@@ -8,7 +8,7 @@
       d:DesignHeight="500" d:DesignWidth="900"
       Title="NewGamePage">
 
-    <Canvas>
+    <Canvas Background="#575757">
         <Label Foreground="White" FontSize="25" Canvas.Left="162" Canvas.Top="28">Название</Label>
         <Label Foreground="White" FontSize="25" Canvas.Left="508" Canvas.Top="28">Титульное изображение</Label>
         <Button x:Name="imageSelectionButton" Content="Выбрать" Canvas.Left="597" Canvas.Top="70" Height="35" Width="137" FontSize="20" Click="imageSelectionButton_Click"></Button>

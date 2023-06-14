@@ -77,7 +77,14 @@ namespace GameSupply.Views
         private void AnnonymousLoginButton_Click(object sender, RoutedEventArgs e)
         {
             StatusContainer.UserStatus = 0;
+            UserInfo.User = new User();
             PageNavigationManager.MainFrame.Navigate(new GamesCatalogue());
+            PageNavigationManager.MainFrame.RemoveBackEntry();
+        }
+
+        private void newAccountButton_Click(object sender, RoutedEventArgs e)
+        {
+            PageNavigationManager.MainFrame.Navigate(new NewUserPage());
             PageNavigationManager.MainFrame.RemoveBackEntry();
         }
     }

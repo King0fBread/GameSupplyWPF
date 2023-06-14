@@ -1,0 +1,31 @@
+﻿<Page x:Class="GameSupply.Views.SelectedGamePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GameSupply.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="SelectedGamePage">
+
+    <Canvas Name="gameCanvas" Background="#575757">
+        <TextBlock Height="41" Width="363" FontSize="30" Canvas.Left="23" Canvas.Top="10" Foreground="White" FontWeight="Bold">Редактирование игры</TextBlock>
+        <Image Name="previewImage" RenderOptions.BitmapScalingMode="HighQuality" Stretch="Uniform" Width="266" Height="194" Source="{Binding PreviewImage}" Canvas.Left="504" Canvas.Top="74"></Image>
+        <TextBlock Foreground="White" FontSize="20" Canvas.Left="148" Canvas.Top="80">Название</TextBlock>
+        <TextBox Name="titleTextBox" Width="256" Height="26" Canvas.Left="148" Canvas.Top="110" Text="{Binding Title}" MaxLength="50"></TextBox>
+        <TextBox Name="descriptionTextBox" Width="256" Canvas.Left="148" Canvas.Top="171" Height="86" TextWrapping="Wrap" Text="{Binding Description}"></TextBox>
+        <ComboBox x:Name="genreComboBox" Width="130" Height="25" Text="Выберите новый" IsEditable="True" IsReadOnly="True" Canvas.Left="148" Canvas.Top="355" SelectedIndex="{Binding IdGenre}">
+            <ComboBoxItem Content="Платформер"/>
+            <ComboBoxItem Content="Хоррор"/>
+            <ComboBoxItem Content="Пазл"/>
+            <ComboBoxItem Content="Выживание"/>
+            <ComboBoxItem Content="Аркада"/>
+        </ComboBox>
+        <TextBlock Foreground="White" FontSize="20" Canvas.Left="148" Canvas.Top="141"><Run Text="Описание"/></TextBlock>
+        <TextBlock Foreground="White" FontSize="20" Canvas.Left="148" Canvas.Top="265"><Run Text="Цена"/></TextBlock>
+        <TextBlock Foreground="White" FontSize="20" Canvas.Left="148" Canvas.Top="325"><Run Text="Жанр"/></TextBlock>
+        <TextBox x:Name="priceTextBox" Width="65" Height="26" Canvas.Left="148" Canvas.Top="299" Text="{Binding Price}"/>
+        <Button Name="redactSubmitButton" Width="246" Height="38" Content="Изменить и сохранить" Canvas.Left="514" Canvas.Top="293" FontSize="20" Click="redactSubmitButton_Click"></Button>
+        <Button x:Name="backButton" Width="86" Height="38" Content="Назад" Canvas.Left="594" Canvas.Top="342" FontSize="20" Click="backButton_Click"/>
+    </Canvas>
+</Page>

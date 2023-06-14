@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Assets\editing.png" />
     <None Remove="Assets\exit.png" />
     <None Remove="Assets\gameCoversAncientEvil.png" />
     <None Remove="Assets\gameCoversCold.png" />
@@ -38,9 +37,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Assets\editing.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="Assets\exit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
