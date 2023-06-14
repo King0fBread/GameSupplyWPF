@@ -11,7 +11,7 @@
     <Canvas>
         <Label Foreground="White" FontSize="25" Canvas.Left="162" Canvas.Top="28">Название</Label>
         <Label Foreground="White" FontSize="25" Canvas.Left="508" Canvas.Top="28">Титульное изображение</Label>
-        <Button Content="Выбрать" Canvas.Left="597" Canvas.Top="70" Height="35" Width="137" FontSize="20"></Button>
+        <Button x:Name="imageSelectionButton" Content="Выбрать" Canvas.Left="597" Canvas.Top="70" Height="35" Width="137" FontSize="20" Click="imageSelectionButton_Click"></Button>
         <TextBox Width="300" Height="30" Canvas.Left="77" Canvas.Top="75" MaxLength="50"></TextBox>
         <Label Foreground="White" FontSize="25" Canvas.Left="99" Canvas.Top="137">Короткое описание</Label>
         <Label Foreground="White" FontSize="25" Canvas.Left="450" Canvas.Top="137">Ссылка для прямого скачивания</Label>
@@ -27,7 +27,7 @@
         <Label Foreground="White" FontSize="25" Canvas.Left="169" Canvas.Top="390">Цена ($)</Label>
         <TextBox Width="130" Height="30" Canvas.Left="161" Canvas.Top="437" MaxLength="50"></TextBox>
         <TextBox Width="418" Height="30" Canvas.Left="450" Canvas.Top="184" MaxLength="50"/>
-        <Button Content="Добавить игру" Canvas.Left="622" Canvas.Top="417" Height="50" Width="246" FontSize="30"></Button>
-        <Button Content="Обратно" Canvas.Left="450" Canvas.Top="417" Height="50" Width="152" FontSize="30"></Button>
+        <Button Name="addGame" Content="Добавить игру" Canvas.Left="622" Canvas.Top="417" Height="50" Width="246" FontSize="30" Click="addGame_Click"></Button>
+        <Button Name="backButton" Content="Обратно" Canvas.Left="450" Canvas.Top="417" Height="50" Width="152" FontSize="30" Click="backButton_Click"></Button>
     </Canvas>
 </Page>

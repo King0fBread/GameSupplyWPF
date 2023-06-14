@@ -88,5 +88,28 @@ namespace GameSupply.Views
         {
             GamesListBoxData.ItemsSource = availableGames.Where(p => p.IdPublisher == UserInfo.User.IdUser);
         }
+
+        private void addGameButton_Click(object sender, RoutedEventArgs e)
+        {
+            //PageNavigationManager.MainFrame.Navigate(new NewGamePage());
+            //PageNavigationManager.MainFrame.RemoveBackEntry();
+        }
+
+        private void statisticsButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void loginHistoryButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void redactGame_Click(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            var selectedGame = button.DataContext as Game;
+            MessageBox.Show(selectedGame.Title);
+        }
     }
 }

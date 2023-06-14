@@ -18,5 +18,20 @@ namespace GameSupply.Models
 
         public virtual Genre IdGenreNavigation { get; set; }
         public virtual User IdPublisherNavigation { get; set; }
+
+        public string RedactVisibility
+        {
+            get
+            {
+                if(IdPublisher == UserInfo.User.IdUser)
+                {
+                    return "Visible";
+                }
+                else
+                {
+                    return "Hidden";
+                }
+            }
+        }
     }
 }

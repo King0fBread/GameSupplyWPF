@@ -22,5 +22,20 @@ namespace GameSupply.Views
         {
             InitializeComponent();
         }
+
+        private void backButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void addGame_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void imageSelectionButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
