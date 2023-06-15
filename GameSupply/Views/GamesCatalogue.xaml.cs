@@ -52,27 +52,12 @@ namespace GameSupply.Views
         private void genreComboBox_DropDownClosed(object sender, EventArgs e)
         {
             var allGames = _availableGames;
-            switch (genreComboBox.SelectedIndex)
+            if (genreComboBox.SelectedIndex == 0)
             {
-                case 0:
-                    GamesListBoxData.ItemsSource = allGames;
-                    break;
-                case 1:
-                    GamesListBoxData.ItemsSource = allGames.Where(p => p.IdGenre == 1);
-                    break;
-                case 2:
-                    GamesListBoxData.ItemsSource = allGames.Where(p => p.IdGenre == 2);
-                    break;
-                case 3:
-                    GamesListBoxData.ItemsSource = allGames.Where(p => p.IdGenre == 3);
-                    break;
-                case 4:
-                    GamesListBoxData.ItemsSource = allGames.Where(p => p.IdGenre == 4);
-                    break;
-                case 5:
-                    GamesListBoxData.ItemsSource = allGames.Where(p => p.IdGenre == 5);
-                    break;
+                GamesListBoxData.ItemsSource = allGames;
+                return;
             }
+            GamesListBoxData.ItemsSource = allGames.Where(p => p.IdGenre == genreComboBox.SelectedIndex);
         }
         private void buttonTitleSearch_Click(object sender, RoutedEventArgs e)
         {
@@ -101,8 +86,8 @@ namespace GameSupply.Views
 
         private void addGameButton_Click(object sender, RoutedEventArgs e)
         {
-            //PageNavigationManager.MainFrame.Navigate(new NewGamePage());
-            //PageNavigationManager.MainFrame.RemoveBackEntry();
+            PageNavigationManager.MainFrame.Navigate(new NewGamePage());
+            PageNavigationManager.MainFrame.RemoveBackEntry();
         }
 
         private void statisticsButton_Click(object sender, RoutedEventArgs e)
@@ -121,6 +106,25 @@ namespace GameSupply.Views
             var selectedGame = button.DataContext as Game;
             PageNavigationManager.MainFrame.Navigate(new SelectedGamePage(selectedGame));
             PageNavigationManager.MainFrame.RemoveBackEntry();
+        }
+
+        private void deleteGameButton_Click(object sender, RoutedEventArgs e)
+        {
+            GameSupplyContext db = new GameSupplyContext();
+
+            var button = sender as Button;
+            var selectedGame = button.DataContext as Game;
+
+            if(MessageBox.Show("Удалить игру?", "Подтвердите удаление", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                db.Remove(selectedGame);
+                db.SaveChanges();
+
+                _availableGames = GameSupplyContext.GetContext().Games.ToList();
+                GamesListBoxData.ItemsSource = _availableGames;
+
+                MessageBox.Show("Удалено!");
+            }
         }
     }
 }

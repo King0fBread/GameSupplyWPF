@@ -22,7 +22,7 @@
             <ComboBoxItem Content="Аркада"/>
         </ComboBox>
         <TextBlock Foreground="White" FontSize="20" Canvas.Left="148" Canvas.Top="141"><Run Text="Описание"/></TextBlock>
-        <TextBlock Foreground="White" FontSize="20" Canvas.Left="148" Canvas.Top="265"><Run Text="Цена"/></TextBlock>
+        <TextBlock Foreground="White" FontSize="20" Canvas.Left="148" Canvas.Top="265"><Run Text="Цена ($)"/></TextBlock>
         <TextBlock Foreground="White" FontSize="20" Canvas.Left="148" Canvas.Top="325"><Run Text="Жанр"/></TextBlock>
         <TextBox x:Name="priceTextBox" Width="65" Height="26" Canvas.Left="148" Canvas.Top="299" Text="{Binding Price}"/>
         <Button Name="redactSubmitButton" Width="246" Height="38" Content="Изменить и сохранить" Canvas.Left="514" Canvas.Top="293" FontSize="20" Click="redactSubmitButton_Click"></Button>

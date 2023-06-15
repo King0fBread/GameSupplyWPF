@@ -22,12 +22,15 @@ namespace GameSupply.Models
         {
 
         }
-        public Game(int idGenre, string title, string description, int price)
+        public Game(int idPublisher, int idGenre, string title, string description, int price, string previewImage, string downloadLink)
         {
+            IdPublisher = idPublisher;
             IdGenre = idGenre;
             Title = title;
             Description = description;
             Price = price;
+            PreviewImage = previewImage;
+            DownloadLink = downloadLink;
         }
         public string RedactVisibility
         {

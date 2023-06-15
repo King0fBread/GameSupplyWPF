@@ -10,6 +10,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using GameSupply.StandaloneScripts;
+using GameSupply.Models;
 
 namespace GameSupply.Views
 {
@@ -25,17 +27,47 @@ namespace GameSupply.Views
 
         private void backButton_Click(object sender, RoutedEventArgs e)
         {
-
+            PageNavigationManager.MainFrame.Navigate(new GamesCatalogue());
+            PageNavigationManager.MainFrame.RemoveBackEntry();
         }
 
         private void addGame_Click(object sender, RoutedEventArgs e)
         {
+            if (CheckGameInfoValidity())
+            {
+                GameSupplyContext db = new GameSupplyContext();
+                Game newGame = new Game(UserInfo.User.IdUser, genreComboBox.SelectedIndex, titleTextBox.Text, descriptionTextBox.Text, int.Parse(priceTextBox.Text), imageSelectionTextBox.Text, linkTextBox.Text);
+                db.Add(newGame);
+                db.SaveChanges();
 
+                MessageBox.Show("Успешно добавлено!");
+                PageNavigationManager.MainFrame.Navigate(new GamesCatalogue());
+                PageNavigationManager.MainFrame.RemoveBackEntry();
+            }
         }
-
-        private void imageSelectionButton_Click(object sender, RoutedEventArgs e)
+        private bool CheckGameInfoValidity()
         {
-
+            if (titleTextBox.Text.Length < 5)
+            {
+                MessageBox.Show("Слишком короткое название!");
+                return false;
+            }
+            if (descriptionTextBox.Text.Length < 20)
+            {
+                MessageBox.Show("Слишком короткое описание!");
+                return false;
+            }
+            if (priceTextBox.Text.Length == 0 || !int.TryParse(priceTextBox.Text, out int result))
+            {
+                MessageBox.Show("Невозможная цена!");
+                return false;
+            }
+            if (!linkTextBox.Text.Contains("https://"))
+            {
+                MessageBox.Show("Невозможная ссылка!");
+                return false;
+            }
+            return true;
         }
     }
 }

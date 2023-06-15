@@ -127,8 +127,10 @@ namespace GameSupply.Models
             {
                 entity.HasKey(e => e.IdUser);
 
+
                 entity.Property(e => e.IdUser)
-                    .HasColumnName("ID_User");
+                    .HasColumnName("ID_User")
+                    .ValueGeneratedOnAdd();
 
                 entity.Property(e => e.Email)
                     .IsRequired()

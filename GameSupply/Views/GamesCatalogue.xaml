@@ -50,7 +50,10 @@
                 <DataTemplate>
                     <Border BorderThickness="1" Margin="15" BorderBrush="#FF212121">
                         <StackPanel Background="#FF212121">
-                            <Button Name="redactGame" Content="Редактировать" Width="100" Height="30" HorizontalAlignment="Right" Click="redactGame_Click" Visibility="{Binding RedactVisibility}"></Button>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <Button Name="deleteGameButton" Content="Удалить" Width="100" Height="30" Margin="0 0 10 0" Click="deleteGameButton_Click" Visibility="{Binding RedactVisibility}"></Button>
+                                <Button Name="redactGame" Content="Редактировать" Width="100" Height="30" Click="redactGame_Click" Visibility="{Binding RedactVisibility}"></Button>
+                            </StackPanel>
                             <Image RenderOptions.BitmapScalingMode="HighQuality" Stretch="Uniform" Width="250" Height="150">
                                 <Image.Source>
                                     <BitmapImage UriSource="{Binding PreviewImage}"/>

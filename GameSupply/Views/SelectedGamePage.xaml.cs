@@ -38,10 +38,7 @@ namespace GameSupply.Views
         {
             if (CheckGameInfoValidity())
             {
-                GameSupplyContext db = new GameSupplyContext();
-                Game newGame = new Game(_affectedGame.IdGenre, _affectedGame.Title, _affectedGame.Description, _affectedGame.Price);
-                db.Games.Add(_affectedGame);
-                db.SaveChanges();
+                GameSupplyContext.GetContext().SaveChanges();
 
                 MessageBox.Show("Успешно изменено");
                 PageNavigationManager.MainFrame.Navigate(new GamesCatalogue());
