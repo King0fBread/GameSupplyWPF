@@ -16,6 +16,7 @@ using LiveCharts;
 using LiveCharts.Wpf;
 using LiveCharts.SeriesAlgorithms;
 using GameSupply.StandaloneScripts;
+using LiveCharts.Defaults;
 
 namespace GameSupply.Views
 {
@@ -24,50 +25,21 @@ namespace GameSupply.Views
     /// </summary>
     public partial class GamesStatisticsPage : Page
     {
-        public ChartValues<int> amountOfGamesByGenre = new ChartValues<int>();
+        public SeriesCollection Series = new SeriesCollection();
         public GamesStatisticsPage()
         {
             InitializeComponent();
+
             var genresList = GameSupplyContext.GetContext().Genres.ToList();
             foreach(var i in genresList)
             {
-                amountOfGamesByGenre.Add(i.Games.Count);
+                Series.Add(new PieSeries
+                {
+                    Title = i.Name,
+                    Values = new ChartValues<ObservableValue> { new ObservableValue(i.Games.Count) },
+                });
             }
-
-            //pieHorrorSeries.Values.Add(amountOfGamesByGenre[1]);
-            //piePuzzleSeries.Values.Add(amountOfGamesByGenre[2]);
-            //pieSurvivalSeries.Values.Add(amountOfGamesByGenre[3]);
-            //pieArcadeSeries.Values.Add(amountOfGamesByGenre[4]);
-
-            genresPieChart.Series = new SeriesCollection
-            {
-                new PieSeries
-                {
-                    Title = "Платформер",
-                    Values = amountOfGamesByGenre,
-                },
-                new PieSeries
-                {
-                    Title = "Хорррор",
-                    Values = amountOfGamesByGenre,
-                },
-                new PieSeries
-                {
-                    Title = "Пазл",
-                    Values = amountOfGamesByGenre,
-                },
-                new PieSeries
-                {
-                    Title = "Выживание",
-                    Values = amountOfGamesByGenre,
-                },
-                new PieSeries
-                {
-                    Title = "Аркада",
-                    Values = amountOfGamesByGenre,
-                },
-
-            };
+            genresPieChart.Series = Series;
 
         }
 

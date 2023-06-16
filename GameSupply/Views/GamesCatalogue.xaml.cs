@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -138,6 +139,23 @@ namespace GameSupply.Views
                 GamesListBoxData.ItemsSource = _availableGames;
 
                 MessageBox.Show("Удалено!");
+            }
+        }
+
+        private void gameItem_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            var stackPanel = sender as StackPanel;
+            var selectedGame = stackPanel.DataContext as Game;
+            var selectedGamePublisher = GameSupplyContext.GetContext().Users.First(p => p.IdUser == selectedGame.IdPublisher);
+
+            if (MessageBox.Show(selectedGame.Description + Environment.NewLine + "От поставщика: " + selectedGamePublisher.Login + Environment.NewLine + Environment.NewLine +
+                "Скачать игру?", "Тестовое скачивание для разработчиков", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = selectedGame.DownloadLink,
+                    UseShellExecute = true
+                });
             }
         }
     }

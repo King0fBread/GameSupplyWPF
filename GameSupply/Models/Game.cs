@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using GameSupply.StandaloneScripts;
 
 #nullable disable
 
@@ -36,7 +37,7 @@ namespace GameSupply.Models
         {
             get
             {
-                if(IdPublisher == UserInfo.User.IdUser)
+                if(IdPublisher == UserInfo.User.IdUser || StatusContainer.UserStatus == 2)
                 {
                     return "Visible";
                 }

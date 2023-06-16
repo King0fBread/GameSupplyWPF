@@ -9,15 +9,15 @@
       Title="LoginHistoryPage">
 
     <Canvas Background="#575757">
-        <Label Foreground="White" FontSize="30" Canvas.Left="52" Canvas.Top="17" FontWeight="Bold">История входа</Label>
-        <DataGrid Name="loginHistoryDataGrid" Height="352" Width="600" Canvas.Left="100" Canvas.Top="88" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserAddRows="False">
+        <Label Foreground="White" FontSize="30" Canvas.Left="96" Canvas.Top="17" FontWeight="Bold">История входа</Label>
+        <DataGrid Name="loginHistoryDataGrid" Height="352" Width="600" Canvas.Left="142" Canvas.Top="88" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserAddRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="IdLoginSession" Binding="{Binding IdLoginSession}" Width="200"/>
                 <DataGridTextColumn Header="UserStatus" Binding="{Binding UserStatus}" Width="200"/>
                 <DataGridTextColumn Header="UserID" Binding="{Binding IdUser}" Width="200"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Name="backButton" Content="Назад" Canvas.Left="618" Canvas.Top="22" Height="43" Width="124" FontSize="30" Click="backButton_Click" RenderTransformOrigin="1.077,0.57"></Button>
+        <Button Name="backButton" Content="Назад" Canvas.Left="656" Canvas.Top="22" Height="43" Width="124" FontSize="30" Click="backButton_Click" RenderTransformOrigin="1.077,0.57"></Button>
 
 
     </Canvas>
