@@ -47,6 +47,18 @@ namespace GameSupply.Views
                 statisticsButton.Visibility = Visibility.Hidden;
                 loginHistoryButton.Visibility = Visibility.Hidden;
             }
+
+            AddCurrentUserToHistoryList();
+        }
+        private void AddCurrentUserToHistoryList()
+        {
+            GameSupplyContext db = new GameSupplyContext();
+            if(StatusContainer.UserStatus != 0)
+            {
+                LoginSessionsHistory newSession = new LoginSessionsHistory(UserInfo.User.Status, UserInfo.User.IdUser);
+                db.Add(newSession);
+                db.SaveChanges();
+            }
         }
 
         private void genreComboBox_DropDownClosed(object sender, EventArgs e)
@@ -92,12 +104,14 @@ namespace GameSupply.Views
 
         private void statisticsButton_Click(object sender, RoutedEventArgs e)
         {
-
+            PageNavigationManager.MainFrame.Navigate(new GamesStatisticsPage());
+            PageNavigationManager.MainFrame.RemoveBackEntry();
         }
 
         private void loginHistoryButton_Click(object sender, RoutedEventArgs e)
         {
-
+            PageNavigationManager.MainFrame.Navigate(new LoginHistoryPage());
+            PageNavigationManager.MainFrame.RemoveBackEntry();
         }
 
         private void redactGame_Click(object sender, RoutedEventArgs e)

@@ -12,5 +12,11 @@ namespace GameSupply.Models
         public int IdUser { get; set; }
 
         public virtual User IdUserNavigation { get; set; }
+
+        public LoginSessionsHistory(string userStatus, int idUser)
+        {
+            UserStatus = userStatus;
+            IdUser = idUser;
+        }
     }
 }

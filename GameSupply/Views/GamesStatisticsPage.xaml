@@ -1,0 +1,25 @@
+﻿<Page x:Class="GameSupply.Views.GamesStatisticsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+      xmlns:local="clr-namespace:GameSupply.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="GamesStatisticsPage">
+
+    <Canvas Background="#575757">
+        <lvc:PieChart Name="genresPieChart" FontSize="20" LegendLocation="Bottom" Hoverable="False" Height="362" Width="669" Canvas.Left="73" Canvas.Top="70" RenderTransformOrigin="0.505,0.525">
+            <lvc:PieChart.Series>
+                <lvc:PieSeries Name="piePlatformerSeries" Title="Платформер" Values="1" DataLabels="False"></lvc:PieSeries>
+                <lvc:PieSeries Name="pieHorrorSeries" Title="Хоррор" Values="2" DataLabels="False"></lvc:PieSeries>
+                <lvc:PieSeries Name="piePuzzleSeries" Title="Пазл" Values="3" DataLabels="False"></lvc:PieSeries>
+                <lvc:PieSeries Name="pieSurvivalSeries" Title="Выживание" Values="4" DataLabels="False"></lvc:PieSeries>
+                <lvc:PieSeries Name="pieArcadeSeries" Title="Аркада" Values="5" DataLabels="False"></lvc:PieSeries>
+            </lvc:PieChart.Series>
+        </lvc:PieChart>
+        <Label Foreground="White" FontSize="30" Canvas.Left="52" Canvas.Top="17" FontWeight="Bold">Статистика игр по жанрам</Label>
+        <Button Name="backButton" Content="Назад" Canvas.Left="618" Canvas.Top="26" Height="44" Width="124" FontSize="30" Click="backButton_Click" RenderTransformOrigin="1.077,0.57"></Button>
+    </Canvas>
+</Page>

@@ -94,7 +94,7 @@ namespace GameSupply.Models
 
             modelBuilder.Entity<LoginSessionsHistory>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.IdLoginSession);
 
                 entity.ToTable("LoginSessionsHistory");
 
