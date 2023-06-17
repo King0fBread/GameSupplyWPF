@@ -9,26 +9,27 @@
       Title="NewGamePage">
 
     <Canvas Background="#575757">
-        <Label Foreground="White" FontSize="25" Canvas.Left="162" Canvas.Top="28">Название</Label>
-        <Label Foreground="White" FontSize="25" Canvas.Left="508" Canvas.Top="28">Титульное изображение</Label>
-        <TextBox Name="titleTextBox" Width="300" Height="30" Canvas.Left="77" Canvas.Top="75" MaxLength="50"></TextBox>
-        <Label Foreground="White" FontSize="25" Canvas.Left="99" Canvas.Top="137">Короткое описание</Label>
-        <Label Foreground="White" FontSize="25" Canvas.Left="450" Canvas.Top="137">Ссылка для прямого скачивания</Label>
-        <TextBox Name="descriptionTextBox" Width="300" Height="85" Canvas.Left="77" Canvas.Top="184" TextWrapping="Wrap" MaxLength="100"></TextBox>
-        <Label Foreground="White" FontSize="25" Canvas.Left="186" Canvas.Top="295">Жанр</Label>
-        <ComboBox Name="genreComboBox" Width="130" Height="30" Text="" IsEditable="True" IsReadOnly="True" Canvas.Left="161" Canvas.Top="342" SelectedIndex="0">
+        <Label Foreground="White" FontWeight="Bold" FontSize="30" Canvas.Left="59" Canvas.Top="18">Добавление игры</Label>
+        <Label Foreground="White" FontSize="25" Canvas.Left="162" Canvas.Top="81">Название</Label>
+        <Label Foreground="White" FontSize="25" Canvas.Left="501" Canvas.Top="122">Титульное изображение</Label>
+        <TextBox Name="titleTextBox" Width="300" Height="30" Canvas.Left="77" Canvas.Top="128" MaxLength="50"></TextBox>
+        <Label Foreground="White" FontSize="25" Canvas.Left="99" Canvas.Top="184">Короткое описание</Label>
+        <Label Foreground="White" FontSize="25" Canvas.Left="441" Canvas.Top="239">Ссылка для прямого скачивания</Label>
+        <TextBox Name="descriptionTextBox" Width="300" Height="85" Canvas.Left="77" Canvas.Top="231" TextWrapping="Wrap" MaxLength="100"></TextBox>
+        <Label Foreground="White" FontSize="25" Canvas.Left="187" Canvas.Top="331">Жанр</Label>
+        <ComboBox Name="genreComboBox" Width="130" Height="30" Text="" IsEditable="True" IsReadOnly="True" Canvas.Left="162" Canvas.Top="378" SelectedIndex="0">
             <ComboBoxItem>Платформер</ComboBoxItem>
             <ComboBoxItem>Хоррор</ComboBoxItem>
             <ComboBoxItem>Пазл</ComboBoxItem>
             <ComboBoxItem>Выживание</ComboBoxItem>
             <ComboBoxItem>Аркада</ComboBoxItem>
         </ComboBox>
-        <Label Foreground="White" FontSize="25" Canvas.Left="169" Canvas.Top="390">Цена ($)</Label>
-        <TextBox Name="priceTextBox" Width="130" Height="30" Canvas.Left="161" Canvas.Top="437" MaxLength="50"></TextBox>
-        <TextBox Name="linkTextBox" Width="418" Height="30" Canvas.Left="450" Canvas.Top="184" MaxLength="50"/>
+        <Label Foreground="White" FontSize="25" Canvas.Left="593" Canvas.Top="24">Цена ($)</Label>
+        <TextBox Name="priceTextBox" Width="130" Height="30" Canvas.Left="585" Canvas.Top="71" MaxLength="50"></TextBox>
+        <TextBox Name="linkTextBox" Width="418" Height="30" Canvas.Left="441" Canvas.Top="286" MaxLength="50"/>
         <Button Name="addGame" Content="Добавить игру" Canvas.Left="622" Canvas.Top="417" Height="50" Width="246" FontSize="30" Click="addGame_Click"></Button>
         <Button Name="backButton" Content="Назад" Canvas.Left="450" Canvas.Top="417" Height="50" Width="125" FontSize="30" Click="backButton_Click"></Button>
-        <ComboBox x:Name="imageSelectionTextBox" Width="130" Height="30" Text="" IsEditable="True" IsReadOnly="True" Canvas.Left="594" Canvas.Top="75" SelectedIndex="0">
+        <ComboBox x:Name="imageSelectionTextBox" Width="130" Height="30" Text="" IsEditable="True" IsReadOnly="True" Canvas.Left="587" Canvas.Top="169" SelectedIndex="0">
             <ComboBoxItem Content="/Assets/gameCoversMizkif.png"/>
             <ComboBoxItem Content="/Assets/gameCoversAncientEvil.png"/>
             <ComboBoxItem Content="/Assets/gameCoversPurgatory.png"/>

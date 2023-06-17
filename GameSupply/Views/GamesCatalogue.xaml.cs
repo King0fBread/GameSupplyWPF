@@ -38,6 +38,8 @@ namespace GameSupply.Views
                 myGamesButton.Visibility = Visibility.Visible;
                 statisticsButton.Visibility = Visibility.Visible;
                 loginHistoryButton.Visibility = Visibility.Visible;
+                printButton.Visibility = Visibility.Visible;
+                genreComboBox.Visibility = Visibility.Visible;
             }
             else
             {
@@ -47,6 +49,8 @@ namespace GameSupply.Views
                 myGamesButton.Visibility = Visibility.Hidden;
                 statisticsButton.Visibility = Visibility.Hidden;
                 loginHistoryButton.Visibility = Visibility.Hidden;
+                printButton.Visibility = Visibility.Hidden;
+                genreComboBox.Visibility = Visibility.Hidden;
             }
 
             AddCurrentUserToHistoryList();
@@ -157,6 +161,12 @@ namespace GameSupply.Views
                     UseShellExecute = true
                 });
             }
+        }
+
+        private void printButton_Click(object sender, RoutedEventArgs e)
+        {
+            PageNavigationManager.MainFrame.Navigate(new GamePrintingPage());
+            PageNavigationManager.MainFrame.RemoveBackEntry();
         }
     }
 }

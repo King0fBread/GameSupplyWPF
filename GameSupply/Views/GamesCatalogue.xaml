@@ -8,39 +8,41 @@
       d:DesignHeight="500" d:DesignWidth="900"
       Title="GamesCatalogue">
     <Page.Resources>
-        <Image x:Key="magnifyingGlass" Source="/Assets/magnifying-glass.png"></Image>
+        <Image x:Key="magnifyingGlass" Source="/Assets/magnifying-glass.png" Height="34"></Image>
         <Image x:Key="logOut" Source="/Assets/exit.png"></Image>
     </Page.Resources>
 
     <Grid>
-        <StackPanel VerticalAlignment="Top" Height="140" Background="Gray" Orientation="Horizontal">
-            <Button Name="logOutButton" Content="{StaticResource logOut}" Height="50" Width="50" VerticalAlignment="Top" Margin="10" Click="logOutButton_Click"></Button>
-            <StackPanel Orientation="Vertical" Width="134" Margin="20 0 0 0">
-                
-                <Button Name="addGameButton" Height="30" Width="130" Margin="0 30 0 0" FontSize="15" Click="addGameButton_Click">Добавить игру</Button>
-                <Button Name="myGamesButton" Height="30" Width="130" Margin="0 20 0 0" FontSize="15" Click="myGamesButton_Click" >Мои игры</Button>
-            </StackPanel>
-            <StackPanel Orientation="Vertical" Width="211" Margin="20 0 0 0">
-                <Button Name="statisticsButton" Height="30" Width="200" Margin="0 30 0 0" FontSize="15" Click="statisticsButton_Click">Статистика игр</Button>
-                <Button Name="loginHistoryButton" Height="30" Width="200" Margin="0 20 0 0" FontSize="15" Click="loginHistoryButton_Click">Просмотр истории входа</Button>
-            </StackPanel>
-            <StackPanel Width="227" Height="107">
-                <TextBlock Name="accountNameTextBlock" Height="74" Width="206" FontSize="18" TextWrapping="Wrap" TextAlignment="Center" Margin="0 15 0 0" Foreground="White">Вы зарегистрированы как:</TextBlock>
-            </StackPanel>
-            <StackPanel Orientation="Vertical">
-                <ComboBox x:Name="genreComboBox" Width="130" Height="30" Text="Поиск по жанру" IsEditable="True" IsReadOnly="True" Margin="0 15 0 10" DropDownClosed="genreComboBox_DropDownClosed">
-                    <ComboBoxItem Content="Показать все"/>
-                    <ComboBoxItem Content="Платформер"/>
-                    <ComboBoxItem Content="Хоррор"/>
-                    <ComboBoxItem Content="Пазл"/>
-                    <ComboBoxItem Content="Выживание"/>
-                    <ComboBoxItem Content="Аркада"/>
-                </ComboBox>
-                <TextBox x:Name="textBoxTitle" Height="30" Width="200" Margin="0 0 0 5"/>
-                <Button x:Name="buttonTitleSearch" Content="{StaticResource magnifyingGlass}" Width="50" Height="40" Click="buttonTitleSearch_Click"/>
+        <StackPanel>
+            <TextBlock FontSize="30" FontWeight="Bold" TextAlignment="Center" Foreground="White" Background="Gray">Каталог игр</TextBlock>
+            <StackPanel Height="178" Background="Gray" Orientation="Horizontal">
+                <Button Name="logOutButton" Content="{StaticResource logOut}" Height="50" Width="50" VerticalAlignment="Top" Margin="10" Click="logOutButton_Click"></Button>
+                <StackPanel Orientation="Vertical" Width="168" Margin="20 0 0 0">
+
+                    <Button Name="addGameButton" Height="30" Width="130" Margin="0 30 0 0" FontSize="15" Click="addGameButton_Click">Добавить игру</Button>
+                    <Button Name="myGamesButton" Height="30" Width="130" Margin="0 20 0 0" FontSize="15" Click="myGamesButton_Click" >Мои игры</Button>
+                    <Button Name="printButton" Height="30" Width="163" Margin="0 20 0 0" FontSize="15" Click="printButton_Click" >Печать информации</Button>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Width="211" Margin="20 0 0 0">
+                    <Button Name="statisticsButton" Height="30" Width="200" Margin="0 30 0 0" FontSize="15" Click="statisticsButton_Click">Статистика игр</Button>
+                    <Button Name="loginHistoryButton" Height="30" Width="200" Margin="0 20 0 0" FontSize="15" Click="loginHistoryButton_Click">Просмотр истории входа</Button>
+                    <ComboBox x:Name="genreComboBox" Width="200" Height="30" Text="Поиск по жанру" IsEditable="True" IsReadOnly="True" Margin="0 20 0 10" DropDownClosed="genreComboBox_DropDownClosed">
+                        <ComboBoxItem Content="Показать все"/>
+                        <ComboBoxItem Content="Платформер"/>
+                        <ComboBoxItem Content="Хоррор"/>
+                        <ComboBoxItem Content="Пазл"/>
+                        <ComboBoxItem Content="Выживание"/>
+                        <ComboBoxItem Content="Аркада"/>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="150 0 0 0">
+                    <TextBlock Name="accountNameTextBlock" Height="74" Width="206" FontSize="18" TextWrapping="Wrap" TextAlignment="Center" Margin="0 15 0 0" Foreground="White">Вы зарегистрированы как:</TextBlock>
+                    <TextBox x:Name="textBoxTitle" Height="30" Width="200" Margin="0 10 0 0"/>
+                    <Button x:Name="buttonTitleSearch" Content="{StaticResource magnifyingGlass}" Width="50" Height="39" Margin="0 5 0 0" Click="buttonTitleSearch_Click"/>
+                </StackPanel>
             </StackPanel>
         </StackPanel>
-        <ListBox x:Name="GamesListBoxData" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="360" Width="900" Background="#575757" VerticalAlignment="Bottom">
+        <ListBox x:Name="GamesListBoxData" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Height="285" Width="900" Background="#575757" VerticalAlignment="Top" Margin="0,215,0,0">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel  Orientation="Horizontal"/>
