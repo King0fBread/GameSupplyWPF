@@ -45,6 +45,10 @@ namespace GameSupply.Views
                 PageNavigationManager.MainFrame.RemoveBackEntry();
             }
         }
+        /// <summary>
+        /// Проверяет поля при публикации новой игры на полноту и корректность данных
+        /// </summary>
+        /// <returns>Булевый результат проверки</returns>
         private bool CheckGameInfoValidity()
         {
             if (titleTextBox.Text.Length < 5)

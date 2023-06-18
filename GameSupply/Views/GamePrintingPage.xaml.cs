@@ -53,6 +53,9 @@ namespace GameSupply.Views
         {
             SetTextForPrinting();
         }
+        /// <summary>
+        /// Заполнение шаблона документа на печать информацией о выбранной игре
+        /// </summary>
         private void SetTextForPrinting()
         {
             var selectedGame = GameSupplyContext.GetContext().Games.First(p => p.Title == gamesComboBox.SelectedItem.ToString());

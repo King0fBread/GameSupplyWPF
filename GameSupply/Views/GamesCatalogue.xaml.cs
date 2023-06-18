@@ -55,6 +55,9 @@ namespace GameSupply.Views
 
             AddCurrentUserToHistoryList();
         }
+        /// <summary>
+        /// Добавление текущего пользователя в таблицу истории входа
+        /// </summary>
         private void AddCurrentUserToHistoryList()
         {
             GameSupplyContext db = new GameSupplyContext();
@@ -83,6 +86,7 @@ namespace GameSupply.Views
             {
                 GamesListBoxData.ItemsSource = allGames.Where(p => p.Title.Contains(textBoxTitle.Text));
                 _searchButtonFilterActive = true;
+                MessageBox.Show("Показ всех игр, содержащих введенный текст. Для отмены повторно нажмите кнопку поиска");
             }
             else
             {

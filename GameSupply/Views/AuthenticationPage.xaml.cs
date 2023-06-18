@@ -26,14 +26,17 @@ namespace GameSupply.Views
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Аутентификация информации пользователя при попытке входа
+        /// </summary>
+        /// <param name="loginInput">Введенный пользователем логин</param>
+        /// <param name="passwordInput">Введенный пользователем логин</param>
+        /// <returns>Индекс проведенной операции, влияющий на дальнейшие дейтсвия</returns>
         private int AuthenticateUser(string loginInput, string passwordInput)
         {
-            //Login check
             var context = GameSupplyContext.GetContext().Users.FirstOrDefault(p => p.Login == loginInput);
             if (context != null)
             {
-                //Password check
                 if(BCrypt.Net.BCrypt.EnhancedVerify(passwordInput, context.Password))
                 {
                     UserInfo.User = context;
@@ -46,10 +49,8 @@ namespace GameSupply.Views
                     }
                     return 0;
                 }
-                //Incorrect password
                 return 1;
             }
-            //incorrect login
             return 2;
         }
 

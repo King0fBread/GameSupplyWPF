@@ -20,7 +20,6 @@ namespace GameSupply.Models
         {
 
         }
-        //Ability to add new publishers
         public User(string login, string password, string email)
         {
             Login = login;
@@ -28,9 +27,5 @@ namespace GameSupply.Models
             Email = email;
             Status = "Publisher";
         }
-        //public static bool TryAuthorize(string login, string password)
-        //{
-
-        //}
     }
 }

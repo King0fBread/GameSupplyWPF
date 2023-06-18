@@ -30,8 +30,15 @@ namespace GameSupply.Views
         {
             InitializeComponent();
 
+            PopulateGamesGraph();
+        }
+        /// <summary>
+        /// Заполняет граф игр релевантной информацией об их жанрах
+        /// </summary>
+        private void PopulateGamesGraph()
+        {
             var genresList = GameSupplyContext.GetContext().Genres.ToList();
-            foreach(var i in genresList)
+            foreach (var i in genresList)
             {
                 Series.Add(new PieSeries
                 {
@@ -40,7 +47,6 @@ namespace GameSupply.Views
                 });
             }
             genresPieChart.Series = Series;
-
         }
 
         private void backButton_Click(object sender, RoutedEventArgs e)
