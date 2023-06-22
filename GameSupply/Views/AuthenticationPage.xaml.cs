@@ -32,7 +32,7 @@ namespace GameSupply.Views
         /// <param name="loginInput">Введенный пользователем логин</param>
         /// <param name="passwordInput">Введенный пользователем логин</param>
         /// <returns>Индекс проведенной операции, влияющий на дальнейшие дейтсвия</returns>
-        private int AuthenticateUser(string loginInput, string passwordInput)
+        public static int AuthenticateUser(string loginInput, string passwordInput)
         {
             var context = GameSupplyContext.GetContext().Users.FirstOrDefault(p => p.Login == loginInput);
             if (context != null)

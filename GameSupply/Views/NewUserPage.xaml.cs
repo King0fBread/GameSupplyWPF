@@ -33,7 +33,7 @@ namespace GameSupply.Views
 
         private void userRegisterButton_Click(object sender, RoutedEventArgs e)
         {
-            if (GetFieldsValidity())
+            if (GetFieldsValidity(loginTextBox.Text, passwordTextBox.Text, secondPasswordTextBox.Text, emailTextBox.Text))
             {
                 GameSupplyContext db = new GameSupplyContext();
                 User newUser = new User(loginTextBox.Text, BCrypt.Net.BCrypt.EnhancedHashPassword(passwordTextBox.Text), emailTextBox.Text);
@@ -50,29 +50,29 @@ namespace GameSupply.Views
         /// Проверяет поля при публикации новой игры на полноту и корректность данных
         /// </summary>
         /// <returns>Булевый результат проверки</returns>
-        private bool GetFieldsValidity()
+        public static bool GetFieldsValidity(string login, string password, string passwordRepeatField, string email)
         {
-            if(loginTextBox.Text.Length < 5)
+            if(login.Length < 5)
             {
                 MessageBox.Show("Слишком короткий логин!");
                 return false;
             }
-            if(passwordTextBox.Text != secondPasswordTextBox.Text)
+            if(password != passwordRepeatField)
             {
                 MessageBox.Show("Пароль повторен ошибочно!");
                 return false;
             }
-            if(passwordTextBox.Text.Length < 6)
+            if(password.Length < 6)
             {
                 MessageBox.Show("Слишком короткий пароль!");
                 return false;
             }
-            if (!emailTextBox.Text.Contains("@gmail.com"))
+            if (!email.Contains("@gmail.com"))
             {
                 MessageBox.Show("Невозможный адрес почты!");
                 return false;
             }
-            if(emailTextBox.Text.Length < 15)
+            if(email.Length < 15)
             {
                 MessageBox.Show("Слишком короткий адрес почты!");
                 return false;

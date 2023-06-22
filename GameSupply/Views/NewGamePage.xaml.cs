@@ -33,7 +33,7 @@ namespace GameSupply.Views
 
         private void addGame_Click(object sender, RoutedEventArgs e)
         {
-            if (CheckGameInfoValidity())
+            if (CheckGameInfoValidity(titleTextBox.Text, descriptionTextBox.Text, priceTextBox.Text, linkTextBox.Text))
             {
                 GameSupplyContext db = new GameSupplyContext();
                 Game newGame = new Game(UserInfo.User.IdUser, genreComboBox.SelectedIndex, titleTextBox.Text, descriptionTextBox.Text, int.Parse(priceTextBox.Text), imageSelectionTextBox.Text, linkTextBox.Text);
@@ -49,24 +49,24 @@ namespace GameSupply.Views
         /// Проверяет поля при публикации новой игры на полноту и корректность данных
         /// </summary>
         /// <returns>Булевый результат проверки</returns>
-        private bool CheckGameInfoValidity()
+        public static bool CheckGameInfoValidity(string title, string description, string price, string link)
         {
-            if (titleTextBox.Text.Length < 5)
+            if (title.Length < 5)
             {
                 MessageBox.Show("Слишком короткое название!");
                 return false;
             }
-            if (descriptionTextBox.Text.Length < 20)
+            if (description.Length < 20)
             {
                 MessageBox.Show("Слишком короткое описание!");
                 return false;
             }
-            if (priceTextBox.Text.Length == 0 || !int.TryParse(priceTextBox.Text, out int result))
+            if (price.Length == 0 || !int.TryParse(price, out int result))
             {
                 MessageBox.Show("Невозможная цена!");
                 return false;
             }
-            if (!linkTextBox.Text.Contains("https://"))
+            if (!link.Contains("https://"))
             {
                 MessageBox.Show("Невозможная ссылка!");
                 return false;

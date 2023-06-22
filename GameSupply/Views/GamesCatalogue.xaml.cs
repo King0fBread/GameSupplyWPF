@@ -30,7 +30,7 @@ namespace GameSupply.Views
             _availableGames = GameSupplyContext.GetContext().Games.ToList();
             GamesListBoxData.ItemsSource = _availableGames;
 
-            if(UserInfo.User != null && StatusContainer.UserStatus != 0)
+            if(UserInfo.User != null && GetUserStatus(StatusContainer.UserStatus))
             {
                 accountNameTextBlock.Text = "Вы зарегистрированы как: " + UserInfo.User.Login;
 
@@ -54,6 +54,14 @@ namespace GameSupply.Views
             }
 
             AddCurrentUserToHistoryList();
+        }
+        public static bool GetUserStatus(int statusIndex)
+        {
+            if(statusIndex != 0)
+            {
+                return true;
+            }
+            return false;
         }
         /// <summary>
         /// Добавление текущего пользователя в таблицу истории входа

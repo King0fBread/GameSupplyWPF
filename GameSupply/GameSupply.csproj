@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Tests\**" />
+    <EmbeddedResource Remove="Tests\**" />
+    <None Remove="Tests\**" />
+    <Page Remove="Tests\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Assets\exit.png" />
     <None Remove="Assets\gameCoversAncientEvil.png" />
     <None Remove="Assets\gameCoversCold.png" />
@@ -19,6 +26,7 @@
     <None Remove="Assets\gameCoversWarlocks.png" />
     <None Remove="Assets\joystick.png" />
     <None Remove="Assets\magnifying-glass.png" />
+    <None Remove="Assets\Ubuntu-Medium.ttf" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,6 +39,10 @@
       <Isolated>false</Isolated>
       <EmbedInteropTypes>true</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\Ubuntu-Medium.ttf" />
   </ItemGroup>
 
   <ItemGroup>
@@ -86,10 +98,6 @@
     <Resource Include="Assets\magnifying-glass.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Tests\" />
   </ItemGroup>
 
 </Project>

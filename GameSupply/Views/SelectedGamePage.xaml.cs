@@ -36,7 +36,7 @@ namespace GameSupply.Views
 
         private void redactSubmitButton_Click(object sender, RoutedEventArgs e)
         {
-            if (CheckGameInfoValidity())
+            if (CheckGameInfoValidity(titleTextBox.Text, descriptionTextBox.Text, priceTextBox.Text))
             {
                 GameSupplyContext.GetContext().SaveChanges();
 
@@ -49,19 +49,19 @@ namespace GameSupply.Views
         /// Проверяет поля при редактировании игры на полноту и корректность данных
         /// </summary>
         /// <returns>Булевый результат проверки</returns>
-        private bool CheckGameInfoValidity()
+        public static bool CheckGameInfoValidity(string title, string description, string price)
         {
-            if(titleTextBox.Text.Length < 5)
+            if(title.Length < 5)
             {
                 MessageBox.Show("Слишком короткое название!");
                 return false;
             }
-            if(descriptionTextBox.Text.Length < 20)
+            if(description.Length < 20)
             {
                 MessageBox.Show("Слишком короткое описание!");
                 return false;
             }
-            if(priceTextBox.Text.Length == 0 || !int.TryParse(priceTextBox.Text, out int result))
+            if(price.Length == 0 || !int.TryParse(price, out int result))
             {
                 MessageBox.Show("Невозможная цена!");
                 return false;
